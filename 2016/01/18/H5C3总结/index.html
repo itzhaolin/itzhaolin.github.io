@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="永远努力在你的生活之上保留一片天空"><title> | 前端之路</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">前端之路</h1><a id="logo" href="/.">前端之路</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Start</i></a><a href="/archives/"><i class="fa fa-archive"> Archiv</i></a><a href="/about/"><i class="fa fa-user"> Über</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Jan 18, 2016</div><div class="post-content"><h1 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h1><h2 id="第二天的复习"><a href="#第二天的复习" class="headerlink" title="第二天的复习"></a>第二天的复习</h2><h3 id="canavs介绍"><a href="#canavs介绍" class="headerlink" title="canavs介绍"></a>canavs介绍</h3><ul>
+<li>html5标签</li>
+<li>js来操作</li>
+<li>var context = canvas.getContext(“2d”);</li>
+</ul>
+<h3 id="画线"><a href="#画线" class="headerlink" title="画线"></a>画线</h3><ul>
+<li>moveTo(x, y);</li>
+<li>lineTo(x, y);</li>
+<li>stroke();</li>
+</ul>
+<h3 id="画矩形"><a href="#画矩形" class="headerlink" title="画矩形"></a>画矩形</h3><ul>
+<li>rect(x, y, w, h)</li>
+<li>strokeRect(x, y, w, h)</li>
+<li>fillRect(x, y, w, h)</li>
+<li>路径： closePath(); beginPath()</li>
+<li>clearRect(x, y, w, h);</li>
+</ul>
+<h3 id="画圆和弧"><a href="#画圆和弧" class="headerlink" title="画圆和弧"></a>画圆和弧</h3><ul>
+<li>arc(x, y, r, start, end, anticlockwise)<ul>
+<li>x： </li>
+<li>y</li>
+<li>r：</li>
+</ul>
+</li>
+<li>lineTo(x, y), closePath</li>
+<li>2<em>Math.PI = 360deg; var r = angle / 180 </em> Math.PI</li>
+</ul>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><ol>
+<li>线条 lineWidth， lineCap = “round”</li>
+<li>阴影 shadowOffsetX shadowOffsetY shadowBlur shadowColor</li>
+<li>渐变 createLinearGradient(x0, y0, x1, y1); createRadialGradient(x0, y0, r0, x1, y1, r1)</li>
+</ol>
+<h3 id="文字的绘制"><a href="#文字的绘制" class="headerlink" title="文字的绘制"></a>文字的绘制</h3><ul>
+<li>font = “20px Arial”</li>
+<li>textAlign = “left”; textBaseline = “middle”;</li>
+<li>strokeText(“text”, x, y) fillText(“text”, x, y)</li>
+<li>measureText(“text”).width;</li>
+</ul>
+<h3 id="图片的绘制"><a href="#图片的绘制" class="headerlink" title="图片的绘制"></a>图片的绘制</h3><ul>
+<li>drawImage(img, x, y) //必须要保证图片已经加载成功了才能进行后面的操作 img.onload = function() {}</li>
+<li>drawImage(img, x, y, w, h) //缩放模式</li>
+<li>drawImage(img, x0, y0, w0, h0, x1, y1, w1, h1)</li>
+</ul>
+<h3 id="连续动画"><a href="#连续动画" class="headerlink" title="连续动画"></a>连续动画</h3><ul>
+<li>以一个非常快的速度来绘制每一帧， 一边绘制一边擦除</li>
+<li>function draw() {}, setInterval(draw, 16.7)</li>
+<li>window.requestAnimationFrame(draw) //性能优化， 自适应刷新帧率</li>
+</ul>
+<h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><ul>
+<li>context.scale(0.3, 0.3) </li>
+<li>context.translate(100, 100)</li>
+<li>context.rotate(0.5*Math.PI)</li>
+</ul>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><ol>
+<li>折线图， 柱状图， 饼图</li>
+<li>文字九宫格</li>
+<li>图片放大器</li>
+<li>移动的小人，小鸟扇动翅膀</li>
+<li>小球的回弹</li>
+<li>散光线</li>
+<li>画图板，小鸟加速下落和旋转</li>
+</ol>
+<blockquote>
+<p>备注： 。。。。。。。</p>
+</blockquote>
+<p><img src="./img/DMMban.png" alt="" width="100"></p>
+<h3 id="小鸟游戏的描述（名词提炼法）"><a href="#小鸟游戏的描述（名词提炼法）" class="headerlink" title="小鸟游戏的描述（名词提炼法）"></a>小鸟游戏的描述（名词提炼法）</h3><blockquote>
+<p>一只小鸟在天上飞， 如果撞到柱子上， 或者掉到地上， 就死了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">小鸟 天 柱子 地， 类=》对象 draw</span><br><span class="line"></span><br><span class="line">小鸟一个（主角）</span><br><span class="line">天空对象二个</span><br><span class="line">陆地四个</span><br><span class="line">管道是6个</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="canvas几天的内容的总结"><a href="#canvas几天的内容的总结" class="headerlink" title="canvas几天的内容的总结"></a>canvas几天的内容的总结</h3><ol>
+<li>canvas它是什么， 它可以干什么？</li>
+<li>简单描述一个canvas绘图的基本的过程？<ol>
+<li>创建一个canvas的标签， 使用canvas的dom元素来创建一个context的对象，所有后面的绘图操作都是调用这个context的属性和方法</li>
+<li>如果我们只是绘制一些基本的形状，比如矩形， 画线，或者画圆， 先调对应的api， 把路径画出来，路径就是玻璃纸上的线条或是形状， 再去渲染</li>
+<li>如果是写文字，或者是画图片， 直接调api， 显示在画布的某一块区域</li>
+</ol>
+</li>
+<li><p>怎么去绘的制矩形和圆？(以笔试题的形式出现)</p>
+<ul>
+<li>rect()，strokeRect(), fillRect() arc()</li>
+</ul>
+</li>
+<li><p>怎么绘制折线图， 柱状图， 饼图？</p>
+<ol>
+<li>折线图就是先计算出每个点的位置，然后呢循环画线；柱状图是先计算出每个矩形的坐标， 循环画矩形， 饼图是计算每个数据所点的比例， 对应的弧度，循环去画扇形；2. 但是用原生的方式，比较复杂，并且，效果也不太好。我们可以使用 echarts。</li>
+</ol>
+</li>
+<li><p>样式。 线条， 阴影， 渐变。</p>
+</li>
+<li><p>动画原理是什么， 用什么api， 绘制的过程怎么样？ </p>
+</li>
+</ol>
+<ul>
+<li>以一个非常快的速度来播放图片（绘制）， setInterval() window.requestAnimationFrame(), 每绘制一帧，先把画布清空。 如果有平移过或者旋转过坐标系，把坐标系还原 </li>
+</ul>
+<ol>
+<li>变换？</li>
+</ol>
+<ul>
+<li>平移， 旋转， 缩放</li>
+</ul>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2018/03/18/常见问题/"></a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Kategorien</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Letzte</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/18/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/18/H5C3总结/">H5C3总结</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2016 <a href="/." rel="nofollow">前端之路.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
