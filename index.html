@@ -259,6 +259,215 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/18/常见问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/18/常见问题/" itemprop="url">Unbenannt</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T14:10:48+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端性能优化网站"><a href="#前端性能优化网站" class="headerlink" title="前端性能优化网站"></a>前端性能优化网站</h2><h3 id="一-页面级优化"><a href="#一-页面级优化" class="headerlink" title="一.页面级优化"></a>一.页面级优化</h3><ul>
+<li>1.减少http请求</li>
+</ul>
+<ul>
+<li>(1). 从设计实现层面简化页面　　</li>
+<li>(2). 合理设置 HTTP缓存　—原则很简单，能缓存越多越好，能缓存越久越好。例如，很少变化的图片资源可以直接通过 HTTP Header中的Expires设置一个很长的过期头 ;变化不频繁而又可能会变的资源可以使用 Last-Modifed来做请求验证。尽可能的让资源能够在缓存中待得更久。　　</li>
+<li>(3). 合并与压缩一个css和js文件,图片转成webP格式　—如果可以的话，尽可能的将外部的脚本、样式进行合并，多个合为一个。另外， CSS、 Javascript、Image 都可以用相应的工具进行压缩，压缩后往往能省下不少空间。　　</li>
+<li>(4). CSS Sprites　　导航栏中的图片合并成一张精灵图,减少图片请求次数　　</li>
+<li>(5). 预览本地 Images　　使用dataURL把图片的二进制数据,进base64编码,形成一个字符串,可以直接作为img的src直接使用　　</li>
+<li>(6). Lazy Load Images（图片懒加载）　能在某些条件下或者页面刚加载时减少 HTTP请求数。对于图片而言，在页面刚加载的时候可以只加载第一屏，当用户继续往后滚屏的时候才加载后续的图片。<br>  原理:把路径存在一个自定义属性中,当进入可视区,追加到img的src中取(jQuery.lazyload.js);</li>
+</ul>
+<ul>
+<li><ol>
+<li>将外部脚本置底（将脚本内容在页面信息内容加载后再加载）</li>
+</ol>
+</li>
+<li><ol>
+<li>异步执行 inline脚本(其实原理和上面是一样，保证脚本在页面内容后面加载。)</li>
+</ol>
+</li>
+<li><ol>
+<li>避免页面跳转 —服务器在处理完http的请求后,会返回http响应报文.如接收的是3xx状态码,网页会重定向,重定向次数过多,网页会一直呈现刷新状态;</li>
+</ol>
+</li>
+<li><ol>
+<li>将 CSS放在 HEAD中</li>
+</ol>
+</li>
+<li><ol>
+<li>异步请求 Callback（就是将一些行为样式提取出来，慢慢的加载信息的内容）</li>
+</ol>
+</li>
+<li><ol>
+<li>减少不必要的 HTTP跳转</li>
+</ol>
+</li>
+<li><ol>
+<li>避免重复的资源请求<h3 id="二、代码级优化"><a href="#二、代码级优化" class="headerlink" title="二、代码级优化"></a>二、代码级优化</h3></li>
+</ol>
+</li>
+<li><ol>
+<li>Javascript</li>
+</ol>
+</li>
+<li><ol>
+<li>CSS选择符</li>
+</ol>
+</li>
+<li><ol>
+<li>HTML</li>
+</ol>
+</li>
+<li><ol>
+<li>Image压缩</li>
+</ol>
+</li>
+</ul>
+<p>##cookie,sessionStorage,localStorage的区别:</p>
+<ul>
+<li>cookie的数据每次请求时都会发往服务器,sessionStorage和localStorage储存在本地;</li>
+<li>cookie只能 储存4k左右的数据; 其它两可以储存5M甚至更多的数据;</li>
+<li>cookie作用时间一直到过期为止; sessionStorage数据周期是关闭浏览器为止;localStorage储存的数据一直存在;</li>
+</ul>
+<h2 id="什么是ajax和json-它们的优缺点"><a href="#什么是ajax和json-它们的优缺点" class="headerlink" title="什么是ajax和json,它们的优缺点;"></a>什么是ajax和json,它们的优缺点;</h2><ul>
+<li>ajax是一种无刷新页面,向后台发送数据请求,然后渲染页面的技术; 使用XMLHttpRequest进行异步数据查询和检索;</li>
+<li>能不更新页面的前提下维护数据,异步模式,能快速地与用户进行交互,减轻服务器工作;</li>
+<li>使用ajax后会影响浏览器的前进后退,即用户本地没有缓存.浏览前后都要向服务器发送请求;</li>
+<li>发送get请求时可能会暴露用户数据,更新的动态无法被搜索到;</li>
+</ul>
+<ul>
+<li>json是一种数据交互的文本格式,可用于任何编程语言; 冒号赋值,容易混淆数据;</li>
+</ul>
+<h2 id="拖拽一个页面某元素"><a href="#拖拽一个页面某元素" class="headerlink" title="拖拽一个页面某元素"></a>拖拽一个页面某元素</h2><ul>
+<li>1.给移动的小盒子添加 draggble=true</li>
+<li>2.监听大盒子 ondragover =function(event){event.preventDefault()};</li>
+<li>3.监听大盒子 ondrop=funtion(){to.appendChild(move)}</li>
+</ul>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
+<li>闭包就是函数中的函数,里面的函数可以访问外面函数的变量,外面的变量是这个内部函数的一部分;</li>
+<li>作用:可以访问函数中得变量,可长期保存在内存中,生命周期较长;</li>
+<li>闭包不能滥用,否则会导致内存泄漏,影响网页性能;</li>
+</ul>
+<h2 id="window-onload-和jquery中-function-入口函数"><a href="#window-onload-和jquery中-function-入口函数" class="headerlink" title="window.onload 和jquery中$(function(){}) 入口函数"></a>window.onload 和jquery中$(function(){}) 入口函数</h2><ul>
+<li>window.load 等页面内包括图片等资源所有元素加载完毕才执行;</li>
+<li>jquery的$(function(){})等DOM结构执行完毕即可;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">代码段</span><br><span class="line">@function ()&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>备注段</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/18/post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -658,7 +867,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
